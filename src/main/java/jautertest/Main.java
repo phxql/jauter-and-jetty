@@ -10,6 +10,8 @@ import java.io.PrintWriter;
 import java.util.Map;
 
 public class Main {
+    private static final int PORT = 8080;
+
     public static void main(String[] args) throws Exception {
         new Main().run();
     }
@@ -21,9 +23,11 @@ public class Main {
                 .GET("/hello/:name", this::hello);
 
         // Start server
-        Server server = new Server(8080);
+        Server server = new Server(PORT);
         server.setHandler(new Handler(router));
         server.start();
+
+        System.out.println("Running at *:" + PORT);
         server.join();
     }
 
@@ -36,6 +40,8 @@ public class Main {
      * @throws Exception If something went wrong.
      */
     private void hello(HttpServletRequest request, HttpServletResponse response, Map<String, String> params) throws Exception {
+        System.out.println("hello(" + request + ", " + params + ")");
+
         try (PrintWriter writer = response.getWriter()) {
             writer.append("Hello(");
             writer.append(params.toString());
