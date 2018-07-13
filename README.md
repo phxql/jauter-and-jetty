@@ -4,7 +4,7 @@ A small project which combines [Jauter](https://github.com/sinetja/jauter) with 
 
 # How do I run this?
 
-Start the `main` method and execute `curl -i http://localhost:8080/hello/Foobar`
+Start the `jautertest.Main.main` method and execute `curl -i http://localhost:8080/hello/Foobar`
 
 ## License
 
