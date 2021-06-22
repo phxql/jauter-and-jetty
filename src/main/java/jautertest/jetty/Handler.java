@@ -1,5 +1,7 @@
 package jautertest.jetty;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import jauter.Routed;
 import jautertest.routing.Method;
 import jautertest.routing.MyRouter;
@@ -7,8 +9,6 @@ import jautertest.routing.RouteHandler;
 import org.eclipse.jetty.server.Request;
 import org.eclipse.jetty.server.handler.AbstractHandler;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
@@ -23,6 +23,8 @@ public class Handler extends AbstractHandler {
 
     @Override
     public void handle(String target, Request baseRequest, HttpServletRequest request, HttpServletResponse response) throws IOException {
+        baseRequest.setHandled(true);
+
         Method method = Method.fromRequest(request);
         String path = request.getPathInfo();
 

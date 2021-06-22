@@ -1,6 +1,6 @@
 package jautertest.routing;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 public enum Method {
     CONNECT, DELETE, GET, HEAD, OPTIONS, PATCH, POST, PUT, TRACE;
